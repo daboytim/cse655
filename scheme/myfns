@@ -1,0 +1,36 @@
+;Derek Boytim
+;CSE 655
+;Lab3
+
+;returns a new list which contains all numbrs in L minus the first occurance of x in L
+(define (elim3 x L) (cond ((null? L) '())
+			  ((pair? L) (cond ((eq? x (car L)) (cdr L))
+					   (#t (cons (car L) (elim3 x (cdr L))))))
+			  (#t (cond ((eq? x L) '())
+				    (#t L))) ))
+
+;returns a new list which contains all numbers in L minus all occurances of x in L
+(define (elim2 x L) (cond ((null? L) '())
+			  ((pair? L) (cond ((eq? x (car L)) (elim2 x (cdr L)))
+			  		   (#t (cons (car L) (elim2 x (cdr L))))))
+			  (#t (cond ((eq? x L) '())
+				    (#t L))) ))
+
+;returns a new list: L1 - (L1 intersection  L2)
+(define (elim L1 L2) (cond ((null? L2) L1 )
+			   ((elim (elim2 (car L2) L1) (cdr L2))) ))
+
+;returns the minimum number in L using x as the reference for comparison
+(define (min2 x L) (cond ((null? L) x) 
+			 ((< x (car L)) (min2 x (cdr L)))
+			 (#t (min2 (car L) (cdr L))) ))
+
+;returns the minimum number in L by calling min2
+(define (min L) (min2 (car L) (cdr L)))
+
+;returns a new list equal to L sorted in non-decending order
+(define (sort L) (cond ((null? L) '())
+		       ((cons (min L) (sort (elim3 (min L) L))))))
+
+;removes from L1 all numbers in L2, then sorts L1
+(define (eliminateNsort L1 L2) (sort (elim L1 L2)))

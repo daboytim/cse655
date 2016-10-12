@@ -1,0 +1,26 @@
+Derek Boytim
+CSE 655
+Interpreter Part 2
+
+Design:
+I followed the OO approach and made a class for all non-terminals in the BNF (except for <comp op>, <let> and <digit> since these were composed of only terminals). Each class contains at least three member functions; parse(), print() and exec(). 
+
+In all cases parse returns a boolean; true if it successfully parsed tokens and other non-terminals corresponding to one of its poduction rules, false otherwise. 
+
+Print always returns void and may take an integer as an argument to keep track of spacing. 
+
+Exec may return void, bool or int, or take a vector<string> as an argument, depending on what the non-terminal does during execution. For example, <if> returns void, <cond> returns bool, <exp> returns int, and <idlist> takes a vector<string> as an argument. If an uninitialized variable is referenced and error message is displayed but program execution is not interrupted.
+
+Each non-terminal class is straighforward and its operation can be understood by referring to the BNF. Classes for <let> and <digit> no-terminals have bee omitted because the tokenizer can return an integer and an identifier; it would not make sense to break down <id> and <int> into these non-terminals. The <comp op> non-terminal was omitted because it is only needed by <comp>; the terminals corresponding to <comp op> are #define in comp.h.
+
+
+User Manual:
+After building an executable, see README, run it using:
+
+% interpreter <program file> <input file>
+
+where % is the unix prompt, interpreter is the name of the executable, <program file> is the name of the file containing your program, and <input file> is the name of the file containing the input to your program.
+
+
+Testing:
+Testing was carried out using the program from page 20 of the slides and using the three programs posted to the newsgroup. File testProg was also midified to check for proper error catching in cases such as: illegal syntax, undeclared variables and reference to uninitialized variables.

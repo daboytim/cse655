@@ -1,0 +1,86 @@
+Derek Boytim
+CSE 655
+Interpreter Part 2
+
+
+Files submitted:
+interpreter.cpp - file containing main(), creates a Tokenizer object and repeatedly calls getToken() until the end of the file has been reached (token 33) or an error happened (-1)
+
+tokenizer.h - contains the class definition for Tokenizer, contains a list of legal tokens (reserved words and special symbols), cointains implementation of the class member function "int getToken()"
+
+makefile - for building an executable and cleaning the src directory
+
+README (this file)
+
+doc - writeup for the lab
+
+program.h - class definition and implementation of <prog> non-terminal
+
+declseq.h - class definition and implementation of <decl seq> non-terminal
+
+stmtseq.h - class definition and implementation of <stmt seq> non-terminal
+
+decl.h - class definition and implementation of <decl> non-terminal
+
+idlist.h - class definition and implementation of <id list> non-terminal
+
+stmt.h - class definition and implementation of <stmt> non-terminal
+
+assign.h - class definition and implementation of <assign> non-terminal
+
+if.h - class definition of <if> non-terminal
+
+ifimpl.h - implementation of If class
+
+loop.h - class definition of <loop> non-terminal
+
+loopimpl.h - implementation of Loop class
+
+input.h - class definition of <input> non-terminal
+
+inputimpl.h - implementation of Input class
+
+output.h - class definition of <otuput> non-terminal
+
+outputimpl.h - implementation of Output class
+
+cond.h - class definition and implementation of <cond> non-terminal
+
+comp.h - class definition and implementation of <comp> non-terminal
+
+exp.h - class definition and implementation of <exp> non-terminal
+
+fac.h - class definition of <fac> non-terminal
+
+facimpl.h - implementation of Fac class
+
+op.h - class definition of <op> non-terminal
+
+opimpl.h - implementation of Op class
+
+id.h - class definition and implementation of <id> non-terminal
+
+int.h - class definition and implementation of <int> non-terminal
+
+idvaltable.h - singleton class for storing id-value paris
+
+testProg - program from page 20 of slides
+
+testOne - first test program from newsgroup
+
+inputOne - input for testOne
+
+testTwo - second test program from newsgroup
+
+inputTwo - input for testTwo
+
+testThree - third test program from newsgroup
+
+inputThree input for testThree
+
+To build an executable:
+with "interpreter.cpp", all *.h files and "makefile" in the same directory execute the "make" command, alternitivly, execute "g++ -o interpreter interpreter.cpp"
+
+
+To execute:
+% interpreter <program file> <input file>
